@@ -169,11 +169,11 @@
             margin-bottom: 20px;
         }
 
-        /* Combos Grid - Cambiado a vertical */
+        /* Combos Grid */
         .combos-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
             margin: 40px 0;
         }
 
@@ -257,51 +257,31 @@
             margin: 20px 0;
         }
 
-        /* Video container styles */
-        .video-examples {
-            margin: 30px 0;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-title {
-            text-align: center;
+        .example-link {
+            display: inline-block;
             color: #C084FC;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(192, 132, 252, 0.1);
+            border-radius: 25px;
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            margin: 5px 10px 5px 0;
+            transition: all 0.3s ease;
             font-size: 0.9rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
         }
 
-        /* WhatsApp Button - Actualizado a verde */
+        .example-link:hover {
+            background: rgba(192, 132, 252, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(192, 132, 252, 0.3);
+        }
+
+        /* WhatsApp Button */
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+            background: linear-gradient(135deg, #9333EA, #A855F7);
             color: white;
             text-decoration: none;
             padding: 15px 30px;
@@ -310,23 +290,17 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(37, 211, 102, 0.3);
+            border: 1px solid rgba(192, 132, 252, 0.3);
             box-shadow: 
-                0 10px 25px rgba(37, 211, 102, 0.3),
+                0 10px 25px rgba(147, 51, 234, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .whatsapp-btn::before {
-            content: "💬";
-            font-size: 1.2em;
         }
 
         .whatsapp-btn:hover {
             transform: translateY(-3px);
             box-shadow: 
-                0 15px 35px rgba(37, 211, 102, 0.4),
+                0 15px 35px rgba(147, 51, 234, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            background: linear-gradient(135deg, #128C7E, #25D366);
         }
 
         /* Benefits Section */
@@ -467,6 +441,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .combos-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
@@ -487,10 +465,6 @@
             
             .section {
                 padding: 25px;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -542,26 +516,14 @@
                         <li>Acompañamiento en todo el proceso</li>
                     </div>
                     
-                    <div class="video-examples">
-                        <strong style="color: #C084FC; text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);">Ejemplos:</strong>
-                        <div class="video-grid">
-                            <div>
-                                <div class="video-title">BELLAKEO</div>
-                                <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/ht5tGiV0h5s?si=rlAfekdvWzCkqPpE" title="BELLAKEO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="video-title">JERSEY LUV</div>
-                                <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/smat1osQsC4?si=Q5YRTMbcoEFwzrDV" title="JERSEY LUV" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="combo-examples">
+                        <strong>Ejemplos:</strong><br>
+                        <a href="https://www.youtube.com/watch?v=ht5tGiV0h5s" class="example-link" target="_blank">BELLAKEO</a>
+                        <a href="https://www.youtube.com/watch?v=smat1osQsC4" class="example-link" target="_blank">JERSEY LUV</a>
                     </div>
                     
                     <a href="https://wa.link/c5lw8y" class="whatsapp-btn" target="_blank">
-                        QUIERO COMBO 1
+                        📱 QUIERO COMBO 1
                     </a>
                 </div>
 
@@ -581,20 +543,14 @@
                         <li>Acompañamiento en todo el proceso</li>
                     </div>
                     
-                    <div class="video-examples">
-                        <strong style="color: #C084FC; text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);">Ejemplo:</strong>
-                        <div class="video-grid">
-                            <div>
-                                <div class="video-title">EUROPA</div>
-                                <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/K3Ve1gN1PJc?si=rcQw0e75DIrRywCA" title="EUROPA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="combo-examples">
+                        <strong>Ejemplos:</strong><br>
+                        <a href="https://www.youtube.com/watch?v=CYmIB5BoD00" class="example-link" target="_blank">EUROPA</a>
+                        <a href="https://www.youtube.com/watch?v=FgqbY_huGO8" class="example-link" target="_blank">AMOR PROHIBIDO</a>
                     </div>
                     
                     <a href="https://wa.link/eoauxe" class="whatsapp-btn" target="_blank">
-                        QUIERO COMBO 2
+                        📱 QUIERO COMBO 2
                     </a>
                 </div>
 
@@ -614,26 +570,14 @@
                         <li>Acompañamiento en todo el proceso</li>
                     </div>
                     
-                    <div class="video-examples">
-                        <strong style="color: #C084FC; text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);">Ejemplos:</strong>
-                        <div class="video-grid">
-                            <div>
-                                <div class="video-title">ETERNIDAD</div>
-                                <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/CYmIB5BoD00?si=uglB567Dy6zFvEgj" title="ETERNIDAD" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="video-title">OTRA VEZ NO</div>
-                                <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/6cF9NIHDdeU?si=NQTqdmcWgocL9Qbb" title="OTRA VEZ NO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="combo-examples">
+                        <strong>Ejemplos:</strong><br>
+                        <a href="https://www.youtube.com/watch?v=CYmIB5BoD00" class="example-link" target="_blank">ETERNIDAD</a>
+                        <a href="https://www.youtube.com/watch?v=6cF9NIHDdeU" class="example-link" target="_blank">OTRA VEZ NO</a>
                     </div>
                     
                     <a href="https://wa.link/f9h2ez" class="whatsapp-btn" target="_blank">
-                        QUIERO COMBO 3
+                        📱 QUIERO COMBO 3
                     </a>
                 </div>
             </div>
@@ -714,4 +658,69 @@
             <h2>Resultados que Podés Esperar</h2>
             <ul class="results-list">
                 <li>Tu música se mantiene visible mínimo por 7-14 días, no solo el día del estreno</li>
-                <li>Conectás con la audiencia correct
+                <li>Conectás con la audiencia correcta, no con cualquiera</li>
+                <li>Descubrís qué estilo de contenido genera más interacción en tu perfil</li>
+                <li>Empezás a construir una marca artística sólida y coherente</li>
+                <li>Ahorrás tiempo y energía: todo ya viene planificado y editado</li>
+            </ul>
+        </section>
+
+        <!-- Process Section -->
+        <section class="section">
+            <h2>¿Cómo Funciona el Proceso?</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Brief + llamada estratégica</strong> (o intercambio por mensaje)
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        Definimos público, tono, estilo y concepto del contenido
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        Te damos ideas, guiones y te indicamos cómo grabar
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        Editamos los reels y organizamos un calendario de publicación
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        Te acompañamos durante todo el lanzamiento
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="cta-section">
+            <h2 class="cta-title">⚠️ CUPOS LIMITADOS</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.2rem; margin-bottom: 20px;">
+                Este servicio es <strong>personalizado</strong>, por eso solo abrimos un número limitado de espacios cada mes.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.link/c5lw8y" class="whatsapp-btn" target="_blank">
+                    📱 QUIERO COMBO 1
+                </a>
+                <a href="https://wa.link/eoauxe" class="whatsapp-btn" target="_blank">
+                    📱 QUIERO COMBO 2
+                </a>
+                <a href="https://wa.link/f9h2ez" class="whatsapp-btn" target="_blank">
+                    📱 QUIERO COMBO 3
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
